@@ -4,6 +4,9 @@
 // output: ['is', 'a', 'split', 'sentence.', 'This']
 
 function rearranger(arr) {
+    const lastWord = arr.shift();
+    arr.push(lastWord);
+    return arr
 }
 
 
@@ -16,18 +19,22 @@ function rearranger(arr) {
 // output: 42
 
 function largestNum(arr) {
+    return Math.max(...arr)
 }
 
 
 // ------------------------------------------
 
 
-// 3. Given an array of numbers, return an array where every element in the given array is multiplied by the length of the given array.
+// 3. Given an array of numbers, return an array where every element in the given array is multiplied by 
+//    the length of the given array.
 // Example:
 // input:  [4, 2, 1, 7]
 // output: [16, 8, 4, 28]
 
 function elemsTimesLength(arr) {
+    const newArr = arr.map(x => x * arr.length);
+    return newArr
 }
 
 
@@ -35,7 +42,8 @@ function elemsTimesLength(arr) {
 
 
 
-//4. Flights from Boise. Write a function that will use the following data to return the cost of flights from boise to a neighboring city, by default return the standard cost unless firstClass is set to true
+//4. Flights from Boise. Write a function that will use the following data to return the cost of flights from 
+//  boise to a neighboring city, by default return the standard cost unless firstClass is set to true
 
 let flights = [{
     from: 'BOI',
@@ -62,15 +70,22 @@ let flights = [{
 
 
 function flightCost(destination, firstClass) {
-    //***hint: use the find method***
+    let flightPrice= flights.find(flightObject => flightObject.to == destination.toUpperCase());
+    if (firstClass == true) {
+        return flightPrice.prices.firstClass
+    }
+    return flightPrice.prices.standard
+    }
+    
 
-}
 
 
 // ------------------------------------------
 
 
-// 5. Given a number, return the corresponding user object from the staff array that has the given number as the value of their id property. If no user is found, return an object with an error property and value of "No user with that id."
+// 5. Given a number, return the corresponding user object from the staff array that has the given number as 
+//  the value of their id property. If no user is found, return an object with an error property and value 
+//  of "No user with that id."
 // Example:
 // input: 17
 // output: {id: 17, name: 'St. MaryLou de la Playa Carmen'}
@@ -84,7 +99,13 @@ let staff = [{ id: 1, name: 'Jon' }, { id: 2, name: 'Yuli' }, { id: 21, name: 'P
 { id: 881, name: 'Paul' }, { id: 0, name: 'Jon' }, { id: 999, name: 'Timma' }]
 
 function findById(id) {
-
+    let staffId = staff.find(userObject => userObject.id == id);
+    if (id == true) {
+        staffId
+    }
+    else {
+        return `No user with that id.`
+    }
 }
 
 
